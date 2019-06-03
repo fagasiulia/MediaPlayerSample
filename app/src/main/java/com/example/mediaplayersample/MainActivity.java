@@ -30,6 +30,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "Play", Toast.LENGTH_SHORT).show();
                 mediaPlayer.start();
+
+                // Get notified when the song came to an end
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener(){
+                    @Override
+                    public void onCompletion(MediaPlayer arg0){
+                        Toast.makeText(MainActivity.this, "Done", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
 
         });
@@ -47,5 +55,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
+
     }
 }
